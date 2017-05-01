@@ -1,17 +1,21 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2012-04-30T14:05:38
-#
-#-------------------------------------------------
-
-QT       += core gui opengl
+QT += core gui opengl widgets
 
 TARGET = FluidSolver
 TEMPLATE = app
+CONFIG -= app_bundle
+
+debug: DBG = -dgb
+
+DESTDIR = build$$DBG-$$[QMAKE_SPEC]/bin
+OBJECTS_DIR = build$$DBG-$$[QMAKE_SPEC]/obj
+MOC_DIR = build$$DBG-$$[QMAKE_SPEC]/obj
+UI_DIR = build$$DBG-$$[QMAKE_SPEC]/obj
+RCC_DIR = build$$DBG-$$[QMAKE_SPEC]/obj
+
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    mainwindow.cpp \
     openglwidget.cpp \
     fluidsolver.cpp \
     macgrid.cpp \
@@ -29,7 +33,7 @@ SOURCES += main.cpp\
     vec3.cpp \
     quaternion.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS += mainwindow.h \
     openglwidget.h \
     fluidsolver.h \
     macgrid.h \
@@ -48,4 +52,4 @@ HEADERS  += mainwindow.h \
     vec3.h \
     quaternion.h
 
-FORMS    += mainwindow.ui
+FORMS += mainwindow.ui

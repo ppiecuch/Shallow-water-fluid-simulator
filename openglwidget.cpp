@@ -99,8 +99,8 @@ void OpenGLWidget::initializeGL()
     try
     {
         //hmap.loadFromBmp("/Users/tyeung/Desktop/FluidSolver/fractal2.bmp");
-        msim.loadTerrainHeightmap("/Users/Jim/Desktop/Google Drive/Projects/FluidSolver/fractal2.bmp", 10);
-        msim.loadWaterDepthmap("/Users/Jim/Desktop/Google Drive/Projects/FluidSolver/fractal2.bmp", 1);
+        msim.loadTerrainHeightmap("fractal2.bmp", 10);
+        msim.loadWaterDepthmap("fractal2.bmp", 1);
     } catch (my::Exception e)
     {
         qDebug() << e.msg();

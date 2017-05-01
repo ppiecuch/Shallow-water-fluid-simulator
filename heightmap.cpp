@@ -34,10 +34,11 @@ void HeightMap::loadFromBmp(const char* path)
 
     throwif(loader.bpp() != 24);
 
+	qDebug() << path << loader.width() << "x" << loader.height();
+
     mmap = new MapCell[loader.width() * loader.height()];
 
     mwidth = loader.width();
-
     mheight = loader.height();
 
     for (unsigned int i=0; i<loader.width(); i++)

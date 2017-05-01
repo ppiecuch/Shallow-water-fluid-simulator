@@ -1,5 +1,6 @@
 #include "bmploader.h"
 #include "exception.h"
+#include <qdebug.h>
 #include <cassert>
 
 using std::ios;
@@ -36,6 +37,8 @@ void BmpLoader::readDIBHeader()
 
 void BmpLoader::readData(int offset)
 {
+	qDebug() << "mimagesize" << mimagesize;
+
     mimagep = new char[mimagesize];
 
     mfile.seekg(offset, ios::beg);
@@ -77,7 +80,7 @@ char * BmpLoader::pixel(unsigned x, unsigned y)
 {
     if (mheight < 0)
         return data(y * mimagesize / height() + x * mbitsperpixel / 8);
-    data((height() - 1 - y) * mimagesize / height() + x * mbitsperpixel / 8);
+    return data((height() - 1 - y) * mimagesize / height() + x * mbitsperpixel / 8);
 }
 unsigned BmpLoader::bpp() { return mbitsperpixel; }
 BmpLoader::PIXEL BmpLoader::width() { return mwidth; }
